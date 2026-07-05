@@ -6,6 +6,7 @@ from routes.analytics_routes import router as analytics_router
 from routes.chat_routes import router as chat_router
 from routes.predict_routes import router as predict_router
 
+
 app = FastAPI(
     title="Loan AI Chatbot",
     version="1.0.0"
