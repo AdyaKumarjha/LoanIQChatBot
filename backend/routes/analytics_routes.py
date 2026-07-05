@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-fromservices.analytics import analytics
+from services.analytics import analytics
 
 router = APIRouter(prefix="/analytics", tags=["Sense AI"])
 
