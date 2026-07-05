@@ -1,7 +1,7 @@
 import google.generativeai as genai
 
-fromconfig import GEMINI_API_KEY
-fromservices.analytics import analytics
+from config import GEMINI_API_KEY
+from services.analytics import analytics
 
 genai.configure(api_key=GEMINI_API_KEY)
 
