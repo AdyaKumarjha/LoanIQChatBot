@@ -1,5 +1,5 @@
 import pandas as pd
-fromutils.data_loader import loan_loader
+from utils.data_loader import loan_loader
 
 
 class LoanAnalytics:

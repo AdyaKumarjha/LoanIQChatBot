@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-fromutils.data_loader import loan_loader
+from utils.data_loader import loan_loader
 import pandas as pd
 import numpy as np
 

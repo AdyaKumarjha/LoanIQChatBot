@@ -1,7 +1,7 @@
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
 
-fromutils.data_loader import loan_loader
+from utils.data_loader import loan_loader
 
 
 class PredictiveAI:
