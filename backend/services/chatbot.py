@@ -1,4 +1,4 @@
-fromservices.agent import agent
+from services.agent import agent
 
 
 class LoanChatbot:

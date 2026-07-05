@@ -1,6 +1,6 @@
-fromservices.analytics import analytics
-fromservices.generative_ai import ask_gemini
-frommodels.predictive_ai import predictor
+from services.analytics import analytics
+from services.generative_ai import ask_gemini
+from models.predictive_ai import predictor
 
 
 class LoanAgent:
