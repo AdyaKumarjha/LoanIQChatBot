@@ -1,5 +1,5 @@
 import pandas as pd
-fromconfig import DATASET_PATH
+from config import DATASET_PATH
 
 
 class LoanDataLoader:
