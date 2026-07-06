@@ -1,4 +1,5 @@
 import google.generativeai as genai
+from google.api_core.exceptions import ResourceExhausted
 
 from config import GEMINI_API_KEY
 from services.analytics import analytics
@@ -11,12 +12,6 @@ model = genai.GenerativeModel("gemini-2.5-flash")
 def ask_gemini(question: str):
 
     summary = analytics.summary_for_ai()
-
-    # print("Products:", summary["products"])
-    # print("Product types:", [type(x) for x in summary["products"]])
-
-    # print("Regions:", summary["regions"])
-    # print("Region types:", [type(x) for x in summary["regions"]])
 
     prompt = f"""
 You are an AI Loan Business Analyst.
@@ -55,6 +50,18 @@ User Question:
 Give a professional business answer.
 """
 
-    response = model.generate_content(prompt)
+    try:
+        response = model.generate_content(prompt)
+        return response.text
 
-    return response.text
+    except ResourceExhausted:
+        return (
+            "The AI assistant is temporarily unavailable because the Gemini API free quota has been exhausted. "
+            "Please try again after a few minutes."
+        )
+
+    except Exception as e:
+        print("Gemini Error:", e)
+        return (
+            "Sorry, I couldn't process your request right now. Please try again later."
+        )

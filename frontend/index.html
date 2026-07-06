@@ -318,51 +318,27 @@ function scrollBottom() {
 // Send Message
 // ===============================
 
-async function sendMessage(message) {
+const response = await fetch(`${API}/chat/`, {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        message: message
+    })
+});
 
-    if (!message.trim()) return;
-
-    addUserMessage(message);
-
-    input.value = "";
-
-    showTyping();
-
-    try {
-
-        const response = await fetch(`${API}/chat/`, {
-
-            method: "POST",
-
-            headers: {
-                "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify({
-                message: message
-            })
-
-        });
-
-        const data = await response.json();
-
-        hideTyping();
-
-        addBotMessage(data.answer);
-
-    }
-
-    catch (error) {
-
-        hideTyping();
-
-        addBotMessage("Unable to connect to backend.");
-
-        console.error(error);
-
-    }
-
+if (!response.ok) {
+    hideTyping();
+    addBotMessage("AI service is currently unavailable. Please try again later.");
+    return;
 }
+
+const data = await response.json();
+
+hideTyping();
+
+addBotMessage(data.answer);
 
 // ===============================
 // Load Dashboard Snapshot
