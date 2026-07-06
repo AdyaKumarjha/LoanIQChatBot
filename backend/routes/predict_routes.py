@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from pydantic import BaseModel, Field
 
-frommodels.predictive_ai import predictor
+from models.predictive_ai import predictor
 
 router = APIRouter(tags=["Prediction"])
 
