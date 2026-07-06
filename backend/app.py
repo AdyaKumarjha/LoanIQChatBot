@@ -23,7 +23,7 @@ origins = [
     "http://localhost:8000",
 
     # Vercel Frontend
-    "https://loan-iq-chat-bot-p13f.vercel.app",
+    "https://loan-iq-chat-bot.vercel.app"
 ]
 
 app.add_middleware(
