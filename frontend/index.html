@@ -231,7 +231,7 @@ body{
 // script.js
 // ===============================
 
-const API = "http://127.0.0.1:8000";
+const API = "https://loaniq-chatbot.onrender.com";
 
 const messages = document.getElementById("messages");
 const input = document.getElementById("input");
@@ -356,7 +356,7 @@ async function sendMessage(message) {
 
         hideTyping();
 
-        addBotMessage("❌ Unable to connect to backend.");
+        addBotMessage("Unable to connect to backend.");
 
         console.error(error);
 
@@ -510,7 +510,7 @@ window.onload = function () {
     loadSnapshot();
 
     addBotMessage(`
-        👋 <b>Welcome to LoanIQ Copilot</b><br><br>
+         <b>Welcome to LoanIQ Copilot</b><br><br>
 
         I can help you with:
         <br><br>
